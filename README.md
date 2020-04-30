@@ -1,3 +1,8 @@
+##Note:
+The entire data set could not be uploaded to data_processing/data/ since the size was greater than 100MB. I have uploaded a small subsection of the data. The entire data set can be downloaded from https://www.kaggle.com/yelp-dataset/yelp-dataset (yelp_academic_dataset_business.json) or from https://www.yelp.com/dataset and then put under /data_processing/data/ with the name "yelp_academic_dataset_business.json"
+
+** This is not required for the program to run, since the pre-processed data is commited and is present under /database/YelpDatabase.sqlite **
+
 ##Dependent packages which need to be installed:
 
 1. Pandas
@@ -8,6 +13,7 @@
 6. Matplotlib
 
 ##Project Structure:
+
 FinalProject
     - data_processing
         - business_data_processor : Responsible for processing data from the JSON file
