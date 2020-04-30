@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Yelp Data Comparator!</title>
+    <link href="{{ url_for('static', filename='css/query.css') }}" rel="stylesheet" type="text/css"/>
+    <a href="/">Back to Home</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</head>
+<body>
+    <h2 class="query">Search and Query</h2>
+        <form action="/query" method="post" novalidate>
+            {{ form.csrf_token }}
+        <p>
+            {{ form.business_name.label }}<br>
+            {{ form.business_name(size=40) }}
+
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=40) }}
+        </p>
+        <p>{{ form.searchByZipCode() }} {{ form.searchByZipCode.label }}</p>
+        <p>{{ form.submit(size=60) }}</p>
+        </form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Yelp Data Comparator!</title>
+    <link href="{{ url_for('static', filename='css/query.css') }}" rel="stylesheet" type="text/css"/>
+    <a href="/">Back to Home</a>
+</head>
+<body>
+    <h2 class="result">Here's something useful for {{business_name}} in location {{location}}</h2>
+    <p>
+        Average statistics:
+        <ol>
+            <li>{{business_name}} has an average rating of {{avg_rating}} in {{location}}</li>
+            <li>{{business_name}} has an average price point of {{avg_price}} in {{location}}</li>
+            <li>{{business_name}} has an average review count of {{avg_review_count}} in {{location}}</li>
+        </ol>
+        <br/>
+
+        {% if show_reviews=="true" %}
+        <h3>Most Popular Business in {{location}} for {{business_name}} </h3>
+        <p>
+            Business Name: {{top_business}} <br/>
+            Rating: {{top_business_rating}} <br/>
+            Price: {{top_business_price}} <br/>
+            <a href="{{ top_business_url }}"> View this business on Yelp </a>
+        </p>
+        <br/>
+        <p>
+        Popular Reviews:
+        <ol>
+            {% for review in review_list %}
+                <li>{{review}}</li>
+            {% endfor %}
+        {% endif %}
+        </ol>
+        </p>
+    <h2 class="top-categories">Most popular categories for {{business_name}} in {{location}}</h2>
+    <p>
+        The top categories for {{business_name}} in {{location}} are:
+        <ol>
+            {% for category in top_categories %}
+                <li>{{category}}</li>
+            {% endfor %}
+        </ol>
+        <br/>
+        <img src="{{ url_for('static', filename='img/category_bar_graph.png') }}"  alt="Pie Chart per catgory">
+    </p>
+    <h2 class="compare">Comparing with other business in and around {{city_name}}</h2>
+    <p>
+        Average statistics for other businesses in {{city_name}}:
+        <ol>
+            <li>An average rating of {{global_avg_ratings}} across all businesses in {{city_name}}</li>
+            <li>An average review count of {{global_avg_review_count}} in {{city_name}}</li>
+        </ol>
+    </p>
+
+    {% if show_global_top_cat=="true" %}
+        <h3>Top Business Categories in {{city_name}}</h3>
+        <p>
+            <img src="{{ url_for('static', filename='img/global_top_cat_bar_graph.png') }}"  alt="Bar Graph per catgory">
+        </p>
+    {% endif %}
+
+    {% if show_top_parking=="true" %}
+        <h3>Types of Parking offered by businesses in {{city_name}}</h3>
+        <p>
+            <img src="{{ url_for('static', filename='img/global_top_parking.png') }}"  alt="Pie Chart per parking">
+        </p>
+    {% endif %}
+
+    {% if show_top_music=="true" %}
+        <h3>Popular Music in {{city_name}} played in businesses</h3>
+        <p>
+            <img src="{{ url_for('static', filename='img/global_top_music_pie_chart.png') }}"  alt="Pie Chart per Music">
+        </p>
+    {% endif %}
+
+    {% if show_top_ambience=="true" %}
+        <h3>Popular Ambience in {{city_name}}</h3>
+        <p>
+            <img src="{{ url_for('static', filename='img/global_top_ambience_pie_chart.png') }}"  alt="Pie Chart per Ambience">
+        </p>
+    {% endif %}
+
+    {% if show_top_diet=="true" %}
+        <h3>Common Dietery Restrictions in {{city_name}}</h3>
+        <p>
+            <img src="{{ url_for('static', filename='img/global_top_dietery_restriction_pie_chart.png') }}"  alt="Pie Chart per Ambience">
+        </p>
+    {% endif %}
+</body>
+</html>

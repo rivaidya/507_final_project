@@ -1,0 +1,33 @@
+body {
+    background-color: #fdf6f2;
+    font-family: 'Avenir Black', 'Arial Black', sans-serif;
+    color: #333333;
+}
+
+h1 {
+    background-color: #e18a7a;
+    text-align: left;
+    font-size: 52px;
+    padding: 15px 15px 15px 15px;
+}
+
+h2 {
+    background-color: #eeb9a2;
+    text-align: left;
+    font-size: 40px;
+    padding: 15px 15px 15px 15px;
+}
+
+h3 {
+    background-color: #e18a7a;
+    text-align: left;
+    font-size: 30px;
+    padding: 15px 15px 15px 15px;
+}
+
+p {
+    /*background-color: #e6e6e6;*/
+    text-align: left;
+    font-size: 20px;
+    padding: 15px 15px 15px 15px;
+}
